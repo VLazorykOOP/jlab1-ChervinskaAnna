@@ -105,6 +105,10 @@ public class Main {
         int n = s.nextInt();
         int[] X = new int[n];
         for (int i = 0; i < n; i++) {
+            if (a > b || b < a) {
+                System.out.print("Сondition not met(a < b)");
+                break;
+            }
             System.out.print("Element " + (i + 1) + ": ");
             X[i] = s.nextInt();
         }
@@ -136,10 +140,40 @@ public class Main {
     }
 
     public static void Third() {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Size matrix? ");
+        int n = s.nextInt();
+        int[][] X = new int[n][n];
 
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print("Element " + "i[" + (i + 1) + "] " + "j[" + (j + 1) + "]" + ": ");
+                X[i][j] = s.nextInt();
+            }
+        }
+
+        System.out.println("Matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(X[i][j] + " ");
+            }
+            System.out.print(" \n");
+        }
+
+        float value = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+
+            }
+        }
     }
 
     public static void Fourth() {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter text ");
+        String inputText = s.nextLine();
+
+        System.out.println("Text: " + inputText);
 
     }
 }
