@@ -103,24 +103,22 @@ public class Main {
         b = s.nextFloat();
         System.out.print("Size massive? ");
         int n = s.nextInt();
-        int[] X = new int[n];
+        float[] X = new float[n];
         for (int i = 0; i < n; i++) {
             if (a > b || b < a) {
                 System.out.print("Сondition not met(a < b)");
                 break;
             }
             System.out.print("Element " + (i + 1) + ": ");
-            X[i] = s.nextInt();
+            X[i] = s.nextFloat();
         }
-        float Sum = 0, Mult = 0;
+        float Sum = 0, Mult = 1;
         for (int i = 0; i < n; i++) {
             if (X[i] < a) {
                 Sum += X[i];
             }
             if (X[i] > b) {
                 Mult *= X[i];
-            } else {
-                continue;
             }
         }
         System.out.println("Sum " + Sum);
@@ -143,12 +141,12 @@ public class Main {
         Scanner s = new Scanner(System.in);
         System.out.print("Size matrix? ");
         int n = s.nextInt();
-        int[][] X = new int[n][n];
+        float[][] X = new float[n][n];
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 System.out.print("Element " + "i[" + (i + 1) + "] " + "j[" + (j + 1) + "]" + ": ");
-                X[i][j] = s.nextInt();
+                X[i][j] = s.nextFloat();
             }
         }
 
@@ -160,11 +158,21 @@ public class Main {
             System.out.print(" \n");
         }
 
-        float value = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        boolean[] Y = new boolean[n];
 
+        for (int i = 0; i < n; i++) {
+            Y[i] = true;
+            for (int j = 0; j < n - 1; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    if (X[i][j] == X[i][k]) {
+                        Y[i] = false;
+                    }
+                }
             }
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(Y[i] + " ");
         }
     }
 
@@ -172,7 +180,6 @@ public class Main {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter text ");
         String inputText = s.nextLine();
-
         System.out.println("Text: " + inputText);
 
     }
