@@ -181,6 +181,25 @@ public class Main {
         System.out.print("Enter text ");
         String inputText = s.nextLine();
         System.out.println("Text: " + inputText);
-
+        String res = "";
+        char FirstLetter = ' ';
+        boolean IsStartWord = true;
+        for (int i = 0; i < inputText.length(); i++) {
+            if (inputText.charAt(i) == ' ' || inputText.charAt(i) == '?' || inputText.charAt(i) == ','
+                    || inputText.charAt(i) == '.'
+                    || inputText.charAt(i) == '!' || inputText.charAt(i) == ':' || inputText.charAt(i) == ';') {
+                res = res + inputText.charAt(i);
+                IsStartWord = true;
+            } else {
+                if (IsStartWord) {
+                    FirstLetter = inputText.charAt(i);
+                    res = res + inputText.charAt(i);
+                    IsStartWord = false;
+                } else if (inputText.charAt(i) != FirstLetter) {
+                    res = res + inputText.charAt(i);
+                }
+            }
+        }
+        System.out.println("Res: " + res);
     }
 }
