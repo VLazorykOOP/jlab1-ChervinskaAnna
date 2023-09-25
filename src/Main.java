@@ -73,17 +73,18 @@ public class Main {
             }
 
             case 3: {
-                int x, y;
+                float x, y;
                 System.out.println("Enter x");
-                x = s.nextInt();
+                x = s.nextFloat();
                 System.out.println("Enter y");
-                y = s.nextInt();
+                y = s.nextFloat();
                 if (x == 0 || y == 0) {
                     throw new IllegalArgumentException("Error: The entered number is equal 0.");
                 } else {
-                    int res = ((2 * x * x + x * y) / (x * y) * (x * y))
+                    float res = ((2 * x * x + x * y) / (x * y) * (x * y))
                             + (((3 * x * y) - (y * y * y)) / (x * x) + (2 * y * y));
-                    System.out.println("Option 3: " + res);
+                    int result = (int) res;
+                    System.out.println("Option 3: " + result);
                     break;
                 }
             }
